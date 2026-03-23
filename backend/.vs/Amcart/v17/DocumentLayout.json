@@ -1,0 +1,346 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Code\\Amcart\\backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}|AmCart.Services.CartAPI\\AmCart.Services.CartAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.cartapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}|AmCart.Services.CartAPI\\AmCart.Services.CartAPI.csproj|solutionrelative:amcart.services.cartapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.productapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|solutionrelative:amcart.services.productapi\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.productapi\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|solutionrelative:amcart.services.productapi\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}|AuthService\\AuthService.csproj|c:\\code\\amcart\\backend\\authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}|AuthService\\AuthService.csproj|solutionrelative:authservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.productapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|solutionrelative:amcart.services.productapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}|AuthService\\AuthService.csproj|c:\\code\\amcart\\backend\\authservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}|AuthService\\AuthService.csproj|solutionrelative:authservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.orderapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|solutionrelative:amcart.services.orderapi\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}|AmCart.Services.CartAPI\\AmCart.Services.CartAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.cartapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}|AmCart.Services.CartAPI\\AmCart.Services.CartAPI.csproj|solutionrelative:amcart.services.cartapi\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}|AmCart.Services.CartAPI\\AmCart.Services.CartAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.cartapi\\services\\rediscartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}|AmCart.Services.CartAPI\\AmCart.Services.CartAPI.csproj|solutionrelative:amcart.services.cartapi\\services\\rediscartservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.orderapi\\models\\cartresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|solutionrelative:amcart.services.orderapi\\models\\cartresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.orderapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|solutionrelative:amcart.services.orderapi\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99A48A6D-D531-4A5E-83F9-25F45290B67D}|ApiGateway\\ApiGateway.csproj|c:\\code\\amcart\\backend\\apigateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{99A48A6D-D531-4A5E-83F9-25F45290B67D}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.orderapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|solutionrelative:amcart.services.orderapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99A48A6D-D531-4A5E-83F9-25F45290B67D}|ApiGateway\\ApiGateway.csproj|c:\\code\\amcart\\backend\\apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99A48A6D-D531-4A5E-83F9-25F45290B67D}|ApiGateway\\ApiGateway.csproj|solutionrelative:apigateway\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.orderapi\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FF4A083-BC59-413E-8F1C-0FBE1708B462}|AmCart.Services.OrderAPI\\AmCart.Services.OrderAPI.csproj|solutionrelative:amcart.services.orderapi\\models\\orderitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.productapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|solutionrelative:amcart.services.productapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}|AmCart.Services.CartAPI\\AmCart.Services.CartAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.cartapi\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}|AmCart.Services.CartAPI\\AmCart.Services.CartAPI.csproj|solutionrelative:amcart.services.cartapi\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.productapi\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|solutionrelative:amcart.services.productapi\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|c:\\code\\amcart\\backend\\amcart.services.productapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}|AmCart.Services.ProductAPI\\AmCart.Services.ProductAPI.csproj|solutionrelative:amcart.services.productapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 17,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AuthService\\appsettings.json",
+              "RelativeDocumentMoniker": "AuthService\\appsettings.json",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AuthService\\appsettings.json",
+              "RelativeToolTip": "AuthService\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-17T06:39:59.733Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\ApiGateway\\appsettings.json",
+              "RelativeDocumentMoniker": "ApiGateway\\appsettings.json",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\ApiGateway\\appsettings.json",
+              "RelativeToolTip": "ApiGateway\\appsettings.json",
+              "ViewState": "AQIAACkAAABgZmZmZiYwwDgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-17T13:40:56.052Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AuthService\\Program.cs",
+              "RelativeDocumentMoniker": "AuthService\\Program.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AuthService\\Program.cs",
+              "RelativeToolTip": "AuthService\\Program.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAlwCsAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T06:35:06.499Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\ApiGateway\\Program.cs",
+              "RelativeDocumentMoniker": "ApiGateway\\Program.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\ApiGateway\\Program.cs",
+              "RelativeToolTip": "ApiGateway\\Program.cs",
+              "ViewState": "AQIAAAgAAAAAaGZmZmb0vyQAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T13:37:10.364Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.ProductAPI\\Models\\Product.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Models\\Product.cs",
+              "RelativeToolTip": "AmCart.Services.ProductAPI\\Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:32:54.494Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CartResponse.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Models\\CartResponse.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.OrderAPI\\Models\\CartResponse.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Models\\CartResponse.cs",
+              "RelativeToolTip": "AmCart.Services.OrderAPI\\Models\\CartResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T10:03:15.722Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Program.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.ProductAPI\\Program.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Program.cs",
+              "RelativeToolTip": "AmCart.Services.ProductAPI\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T14:18:13.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.CartAPI\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.CartAPI\\Controllers\\CartController.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.CartAPI\\Controllers\\CartController.cs",
+              "RelativeToolTip": "AmCart.Services.CartAPI\\Controllers\\CartController.cs",
+              "ViewState": "AQIAACUAAABAmpmZmdkhwDoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T10:39:39.681Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Program.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.OrderAPI\\Program.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Program.cs",
+              "RelativeToolTip": "AmCart.Services.OrderAPI\\Program.cs",
+              "ViewState": "AQIAABUAAAAAOzMzMzMLwCgAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T09:15:02.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.OrderAPI\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "AmCart.Services.OrderAPI\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAAADgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T09:01:06.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Models\\OrderItem.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.OrderAPI\\Models\\OrderItem.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Models\\OrderItem.cs",
+              "RelativeToolTip": "AmCart.Services.OrderAPI\\Models\\OrderItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T09:00:37.068Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Order.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Models\\Order.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.OrderAPI\\Models\\Order.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.OrderAPI\\Models\\Order.cs",
+              "RelativeToolTip": "AmCart.Services.OrderAPI\\Models\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T08:59:47.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RedisCartService.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.CartAPI\\Services\\RedisCartService.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.CartAPI\\Services\\RedisCartService.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.CartAPI\\Services\\RedisCartService.cs",
+              "RelativeToolTip": "AmCart.Services.CartAPI\\Services\\RedisCartService.cs",
+              "ViewState": "AQIAAAgAAAAAamZmZmYEwCEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T09:26:21.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.CartAPI\\Program.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.CartAPI\\Program.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.CartAPI\\Program.cs",
+              "RelativeToolTip": "AmCart.Services.CartAPI\\Program.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAwB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T07:01:43.284Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.CartAPI\\Models\\Cart.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.CartAPI\\Models\\Cart.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.CartAPI\\Models\\Cart.cs",
+              "RelativeToolTip": "AmCart.Services.CartAPI\\Models\\Cart.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T18:27:45.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "AmCart.Services.ProductAPI\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Properties\\launchSettings.json",
+              "RelativeToolTip": "AmCart.Services.ProductAPI\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAwBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-17T16:23:24.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.ProductAPI\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "AmCart.Services.ProductAPI\\Controllers\\ProductsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T14:30:37.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "AmCart.Services.ProductAPI\\appsettings.json",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\appsettings.json",
+              "RelativeToolTip": "AmCart.Services.ProductAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-17T14:29:49.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "AmCart.Services.ProductAPI\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Code\\Amcart\\backend\\AmCart.Services.ProductAPI\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "AmCart.Services.ProductAPI\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-17T14:27:44.156Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

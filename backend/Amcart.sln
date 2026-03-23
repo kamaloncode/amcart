@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C99698DA-2682-4FA1-8CE2-5356DED8034A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{18C77ABD-6F3C-4C4E-B554-F7C0F1842763}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{B0F5D3FC-FC54-44FA-965F-CDF589FE003B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{BDBE6803-A2D5-43B6-9D8B-8642A3067F0B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthService", "AuthService\AuthService.csproj", "{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{99A48A6D-D531-4A5E-83F9-25F45290B67D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.Services.ProductAPI", "AmCart.Services.ProductAPI\AmCart.Services.ProductAPI.csproj", "{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmCart.Services.CartAPI", "AmCart.Services.CartAPI\AmCart.Services.CartAPI.csproj", "{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmCart.Services.OrderAPI", "AmCart.Services.OrderAPI\AmCart.Services.OrderAPI.csproj", "{5FF4A083-BC59-413E-8F1C-0FBE1708B462}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B01BAA87-5977-47A6-80EE-52CF7EDDE80E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A48A6D-D531-4A5E-83F9-25F45290B67D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A48A6D-D531-4A5E-83F9-25F45290B67D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A48A6D-D531-4A5E-83F9-25F45290B67D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A48A6D-D531-4A5E-83F9-25F45290B67D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3AB1637-630E-4D34-BD7B-F613F9FDEB01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF4A083-BC59-413E-8F1C-0FBE1708B462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF4A083-BC59-413E-8F1C-0FBE1708B462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF4A083-BC59-413E-8F1C-0FBE1708B462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF4A083-BC59-413E-8F1C-0FBE1708B462}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B01BAA87-5977-47A6-80EE-52CF7EDDE80E} = {C99698DA-2682-4FA1-8CE2-5356DED8034A}
+		{C3AB1637-630E-4D34-BD7B-F613F9FDEB01} = {C99698DA-2682-4FA1-8CE2-5356DED8034A}
+		{B7E52FA8-58F9-486C-9E72-9E1F1C96EE35} = {C99698DA-2682-4FA1-8CE2-5356DED8034A}
+		{5FF4A083-BC59-413E-8F1C-0FBE1708B462} = {C99698DA-2682-4FA1-8CE2-5356DED8034A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BDC94F8C-AFF7-4FE1-A157-2D85072E4F4B}
+	EndGlobalSection
+EndGlobal

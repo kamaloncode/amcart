@@ -1,0 +1,6 @@
+@AmCart.Services.OrderAPI_HostAddress = http://localhost:5067
+
+GET {{AmCart.Services.OrderAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
