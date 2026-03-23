@@ -59,10 +59,15 @@ namespace AuthService.Controllers
         {
             var user = await _context.Users
                 .FirstOrDefaultAsync(x => x.Email == request.Email);
+            _passwordService.CreatePasswordHash(
+                request.Password,
+                out string hash,
+                out string salt
+            );
 
             if (!_context.Users.Any())
             {
-                _context.Users.Add(new User { Email = "test@gmail.com", PasswordHash = "123456" });
+                _context.Users.Add(new User { Email = "test@gmail.com", PasswordHash = hash });
                 _context.SaveChanges();
             }
 
