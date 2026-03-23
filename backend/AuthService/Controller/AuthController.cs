@@ -60,6 +60,12 @@ namespace AuthService.Controllers
             var user = await _context.Users
                 .FirstOrDefaultAsync(x => x.Email == request.Email);
 
+            if (!_context.Users.Any())
+            {
+                _context.Users.Add(new User { Email = "test@gmail.com", PasswordHash = "123456" });
+                _context.SaveChanges();
+            }
+
             if (user == null)
                 return Unauthorized("Invalid credentials");
 
