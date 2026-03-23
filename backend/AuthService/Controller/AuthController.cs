@@ -57,19 +57,25 @@ namespace AuthService.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
-            var user = await _context.Users
-                .FirstOrDefaultAsync(x => x.Email == request.Email);
-            _passwordService.CreatePasswordHash(
-                request.Password,
-                out string hash,
-                out string salt
-            );
-
             if (!_context.Users.Any())
             {
-                _context.Users.Add(new User { Email = "test@gmail.com", PasswordHash = hash });
+                _passwordService.CreatePasswordHash(
+                    "123456",
+                    out string seedHash,
+                    out string seedSalt
+                );
+
+                _context.Users.Add(new User
+                {
+                    Email = "test@gmail.com",
+                    PasswordHash = seedHash,
+                    PasswordSalt = seedSalt
+                });
                 _context.SaveChanges();
             }
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(x => x.Email == request.Email);
 
             if (user == null)
                 return Unauthorized("Invalid credentials");
