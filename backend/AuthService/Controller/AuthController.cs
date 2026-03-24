@@ -67,10 +67,18 @@ namespace AuthService.Controllers
 
                 _context.Users.Add(new User
                 {
+                    UserId = Guid.NewGuid(),
                     Email = "test@gmail.com",
                     PasswordHash = seedHash,
-                    PasswordSalt = seedSalt
+                    PasswordSalt = seedSalt,
+                    FirstName = "Test",
+                    LastName = "User",
+                    PhoneNumber = "9999999999",
+                    IsActive = true,
+                    CreatedAt = DateTime.UtcNow,
+                    UpdatedAt = DateTime.UtcNow
                 });
+
                 _context.SaveChanges();
             }
 
