@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using AmCart.Services.OrderAPI.Models;
+using AmCart.Services.OrderAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace AmCart.Services.OrderAPI.Controllers;
 
@@ -10,27 +12,35 @@ namespace AmCart.Services.OrderAPI.Controllers;
 [Authorize]
 public class OrderController : ControllerBase
 {
-    private static readonly List<Order> _orders = new();
+    private readonly OrderDbContext _db;
+
+    public OrderController(OrderDbContext db)
+    {
+        _db = db;
+    }
 
     private string GetUserId()
     {
         return User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "";
     }
 
-    // GET all orders for user
+    //  GET orders
     [HttpGet]
-    public IActionResult GetOrders()
+    public async Task<IActionResult> GetOrders()
     {
         var userId = GetUserId();
 
-        var userOrders = _orders.Where(o => o.UserId == userId).ToList();
+        var orders = await _db.Orders
+            .Include(o => o.Items)
+            .Where(o => o.UserId == userId)
+            .ToListAsync();
 
-        return Ok(userOrders);
+        return Ok(orders);
     }
 
-    // CREATE order (checkout)
+    // CREATE order (from Cart)
     [HttpPost]
-    public IActionResult CreateOrder([FromBody] dynamic data)
+    public async Task<IActionResult> CreateOrder([FromBody] dynamic data)
     {
         var userId = GetUserId();
 
@@ -38,20 +48,20 @@ public class OrderController : ControllerBase
             .Select(i => new OrderItem
             {
                 ProductId = (int)i.productId,
-                ProductName = (string)i.productName,
+                ProductName = i.productName != null ? (string)i.productName : "",
                 Quantity = (int)i.quantity,
-                Price = (decimal)i.price
+                Price = i.price != null ? (decimal)i.price : 0
             }).ToList();
 
         var order = new Order
         {
-            Id = _orders.Count + 1,
             UserId = userId,
             Items = items,
             CreatedAt = DateTime.UtcNow
         };
 
-        _orders.Add(order);
+        _db.Orders.Add(order);
+        await _db.SaveChangesAsync();
 
         return Ok(order);
     }
