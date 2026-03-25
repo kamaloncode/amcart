@@ -42,9 +42,10 @@ builder.Services.AddCors(options =>
               .AllowAnyHeader());
 });
 
-var app = builder.Build();
 builder.Services.AddDbContext<OrderDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+var app = builder.Build();
 
 app.UseCors("AllowAll");
 
