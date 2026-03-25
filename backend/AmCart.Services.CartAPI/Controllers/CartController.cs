@@ -41,7 +41,7 @@ public class CartController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> AddToCart(CartItem item)
     {
-        var userId = GetUserId();
+        var userId = GetUserId();   // GET USER
 
         var existing = await _db.CartItems
             .FirstOrDefaultAsync(x => x.UserId == userId && x.ProductId == item.ProductId);
@@ -57,7 +57,7 @@ public class CartController : ControllerBase
         }
         else
         {
-            item.UserId = userId;
+            item.UserId = userId;   
             _db.CartItems.Add(item);
         }
 
