@@ -63,7 +63,9 @@ public class CartController : ControllerBase
 
         await _db.SaveChangesAsync();
 
-        return Ok(item);
+        return Ok(await _db.CartItems
+            .Where(x => x.UserId == userId)
+            .ToListAsync());
     }
 
     // REMOVE item
