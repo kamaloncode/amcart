@@ -2,7 +2,8 @@
 using AmCart.Services.CartAPI.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
-using AmCart.Services.CartAPI.Services;
+using AmCart.Services.CartAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace AmCart.Services.CartAPI.Controllers;
 
@@ -11,58 +12,58 @@ namespace AmCart.Services.CartAPI.Controllers;
 [Authorize]
 public class CartController : ControllerBase
 {
-    private readonly RedisCartService _cartService;
+    private readonly CartDbContext _db;
 
-    public CartController(RedisCartService cartService)
+    public CartController(CartDbContext db)
     {
-        _cartService = cartService;
+        _db = db;
     }
+
     private string GetUserId()
     {
         return User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "anonymous";
     }
 
-    // GET cart
+    //  GET cart for logged-in user
     [HttpGet]
     public async Task<IActionResult> GetCart()
     {
         var userId = GetUserId();
-        var cart = await _cartService.GetCart(userId);
 
-        if (cart != null)
-            return Ok(cart);
+        var items = await _db.CartItems
+            .Where(x => x.UserId == userId)
+            .ToListAsync();
 
-        return Ok(new Cart { UserId = userId });
+        return Ok(items);
     }
 
-    // ADD item
+    // ADD item to cart
     [HttpPost]
     public async Task<IActionResult> AddToCart(CartItem item)
     {
         var userId = GetUserId();
-        var cart = await _cartService.GetCart(userId)
-           ?? new Cart { UserId = userId };
 
-        var existing = cart.Items.FirstOrDefault(x => x.ProductId == item.ProductId);
+        var existing = await _db.CartItems
+            .FirstOrDefaultAsync(x => x.UserId == userId && x.ProductId == item.ProductId);
 
         if (existing != null)
         {
             existing.Quantity += item.Quantity;
-            existing.Quantity += item.Quantity;
 
             if (existing.Quantity <= 0)
             {
-                cart.Items.Remove(existing);
+                _db.CartItems.Remove(existing);
             }
         }
         else
         {
-            cart.Items.Add(item);
+            item.UserId = userId;
+            _db.CartItems.Add(item);
         }
 
-        await _cartService.SaveCart(cart);
+        await _db.SaveChangesAsync();
 
-        return Ok(cart);
+        return Ok(item);
     }
 
     // REMOVE item
@@ -70,47 +71,49 @@ public class CartController : ControllerBase
     public async Task<IActionResult> Remove(int productId)
     {
         var userId = GetUserId();
-        var cart = await _cartService.GetCart(userId);
 
-        if (cart == null)
+        var item = await _db.CartItems
+            .FirstOrDefaultAsync(x => x.UserId == userId && x.ProductId == productId);
+
+        if (item == null)
             return NotFound();
 
-        cart.Items.RemoveAll(x => x.ProductId == productId);
+        _db.CartItems.Remove(item);
+        await _db.SaveChangesAsync();
 
-        await _cartService.SaveCart(cart);
-
-        return Ok(cart);
+        return Ok();
     }
 
     [HttpPost("checkout")]
     public async Task<IActionResult> Checkout(
-    [FromServices] IHttpClientFactory httpClientFactory)
+        [FromServices] IHttpClientFactory httpClientFactory)
     {
         var userId = GetUserId();
 
-        var cart = await _cartService.GetCart(userId);
+        var items = await _db.CartItems
+            .Where(x => x.UserId == userId)
+            .ToListAsync();
 
-        if (cart == null || !cart.Items.Any())
+        if (!items.Any())
             return BadRequest("Cart is empty");
 
         var client = httpClientFactory.CreateClient("OrderService");
 
-        var order = new
-        {
-            items = cart.Items
-        };
         client.DefaultRequestHeaders.Authorization =
-                                     new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer",
-                                        HttpContext.Request.Headers["Authorization"].ToString().Replace("Bearer ", "")
-                                    );
+            new System.Net.Http.Headers.AuthenticationHeaderValue(
+                "Bearer",
+                HttpContext.Request.Headers["Authorization"]
+                    .ToString().Replace("Bearer ", "")
+            );
 
-        var response = await client.PostAsJsonAsync("/api/order", order);
+        var response = await client.PostAsJsonAsync("/api/order", new { items });
 
         if (!response.IsSuccessStatusCode)
             return StatusCode(500, "Order creation failed");
 
-        // Clear cart after checkout
-        await _cartService.ClearCart(userId);
+        //  Clear cart
+        _db.CartItems.RemoveRange(items);
+        await _db.SaveChangesAsync();
 
         var result = await response.Content.ReadFromJsonAsync<object>();
 

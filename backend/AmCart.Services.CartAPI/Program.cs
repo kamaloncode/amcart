@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using StackExchange.Redis;
-using AmCart.Services.CartAPI.Services;
-
+using Microsoft.EntityFrameworkCore;
+using AmCart.Services.CartAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,9 +26,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-builder.Services.AddSingleton<IConnectionMultiplexer>(
-    ConnectionMultiplexer.Connect("localhost:6379"));
-builder.Services.AddScoped<RedisCartService>();
 builder.Services.AddHttpClient("OrderService", client =>
 {
     client.BaseAddress = new Uri("http://localhost:5067"); 
@@ -45,7 +41,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddDbContext<CartDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -70,5 +67,11 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<CartDbContext>();
+    db.Database.Migrate();
+}
 
 app.Run();
