@@ -38,50 +38,30 @@ public class OrderController : ControllerBase
         return Ok(orders);
     }
 
-    // CREATE order (from Cart)
     [HttpPost]
-    public async Task<IActionResult> CreateOrder([FromBody] dynamic data)
+    public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest request)
     {
-        try
+        var userId = GetUserId();
+
+        var order = new Order
         {
-            var userId = GetUserId();
+            UserId = userId,
+            CreatedAt = DateTime.UtcNow
+        };
 
-            var items = ((IEnumerable<dynamic>)data.items)
-                .Select(i => new OrderItem
-                {
-                    ProductId = (int)i.productId,
-                    ProductName = i.productName != null ? (string)i.productName : "",
-                    Quantity = (int)i.quantity,
-                    Price = i.price != null ? (decimal)i.price : 0
-                }).ToList();
+        _db.Orders.Add(order);
+        await _db.SaveChangesAsync();
 
-            var order = new Order
-            {
-                UserId = userId,
-                CreatedAt = DateTime.UtcNow
-            };
-
-            _db.Orders.Add(order);
-            await _db.SaveChangesAsync();   // get Order.Id
-
-            foreach (var item in items)
-            {
-                item.OrderId = order.Id;
-            }
-
-            order.Items = items;
-
-            _db.OrderItems.AddRange(items);
-            await _db.SaveChangesAsync();
-
-            _db.Orders.Add(order);
-            await _db.SaveChangesAsync();
-
-            return Ok(order);
-        }
-        catch (Exception ex)
+        foreach (var item in request.Items)
         {
-            return StatusCode(500, ex.Message);
+            item.OrderId = order.Id;
         }
+
+        _db.OrderItems.AddRange(request.Items);
+        await _db.SaveChangesAsync();
+
+        order.Items = request.Items;
+
+        return Ok(order);
     }
 }
