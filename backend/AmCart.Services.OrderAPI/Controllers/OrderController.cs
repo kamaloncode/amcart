@@ -42,39 +42,46 @@ public class OrderController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> CreateOrder([FromBody] dynamic data)
     {
-        var userId = GetUserId();
+        try
+        {
+            var userId = GetUserId();
 
-        var items = ((IEnumerable<dynamic>)data.items)
-            .Select(i => new OrderItem
+            var items = ((IEnumerable<dynamic>)data.items)
+                .Select(i => new OrderItem
+                {
+                    ProductId = (int)i.productId,
+                    ProductName = i.productName != null ? (string)i.productName : "",
+                    Quantity = (int)i.quantity,
+                    Price = i.price != null ? (decimal)i.price : 0
+                }).ToList();
+
+            var order = new Order
             {
-                ProductId = (int)i.productId,
-                ProductName = i.productName != null ? (string)i.productName : "",
-                Quantity = (int)i.quantity,
-                Price = i.price != null ? (decimal)i.price : 0
-            }).ToList();
+                UserId = userId,
+                CreatedAt = DateTime.UtcNow
+            };
 
-        var order = new Order
-        {
-            UserId = userId,
-            CreatedAt = DateTime.UtcNow
-        };
+            _db.Orders.Add(order);
+            await _db.SaveChangesAsync();   // get Order.Id
 
-        _db.Orders.Add(order);
-        await _db.SaveChangesAsync();   // get Order.Id
+            foreach (var item in items)
+            {
+                item.OrderId = order.Id;
+            }
 
-        foreach (var item in items)
-        {
-            item.OrderId = order.Id;
+            order.Items = items;
+
+            _db.OrderItems.AddRange(items);
+            await _db.SaveChangesAsync();
+
+            _db.Orders.Add(order);
+            await _db.SaveChangesAsync();
+
+            return Ok(order);
         }
-
-        order.Items = items;
-
-        _db.OrderItems.AddRange(items);
-        await _db.SaveChangesAsync();
-
-        _db.Orders.Add(order);
-        await _db.SaveChangesAsync();
-
-        return Ok(order);
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
     }
 }
