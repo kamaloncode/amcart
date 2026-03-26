@@ -56,9 +56,21 @@ public class OrderController : ControllerBase
         var order = new Order
         {
             UserId = userId,
-            Items = items,
             CreatedAt = DateTime.UtcNow
         };
+
+        _db.Orders.Add(order);
+        await _db.SaveChangesAsync();   // get Order.Id
+
+        foreach (var item in items)
+        {
+            item.OrderId = order.Id;
+        }
+
+        order.Items = items;
+
+        _db.OrderItems.AddRange(items);
+        await _db.SaveChangesAsync();
 
         _db.Orders.Add(order);
         await _db.SaveChangesAsync();
