@@ -4,19 +4,16 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Optional: keep auth if you want gateway-level auth
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
-        options.RequireHttpsMetadata = false; // dev only
-        options.SaveToken = true;
+        options.RequireHttpsMetadata = false;
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = false,
             ValidateAudience = false,
-            ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = "Amcart",
-            ValidAudience = "AmcartUsers",
             IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes("THIS_IS_SUPER_SECRET_KEY_1234567890_ABCDEF"))
         };
@@ -25,9 +22,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 
 // YARP
-builder.Services
-    .AddReverseProxy()
+builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
@@ -37,10 +34,11 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
 app.UseCors("AllowAll");
 
-app.UseAuthentication();  
-app.UseAuthorization(); 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapReverseProxy();
 
