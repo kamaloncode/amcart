@@ -1,0 +1,47 @@
+/* global.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+input[type="checkbox"],
+button {
+  font-family: inherit;
+  font-size: 14px;
+  margin: 5px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: 1px solid #007bff;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Checkbox alignment */
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+/* Optional: inputs & selects on focus */
+input:focus,
+select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
