@@ -11,6 +11,7 @@ const Admin = () => {
     price: "",
     category: "",
     isFeatured: false,
+    image: null,
   });
 
   const token = localStorage.getItem("token");
@@ -41,19 +42,26 @@ const Admin = () => {
 
   const saveProduct = async () => {
     try {
-      const payload = {
-        name: form.name,
-        price: parseFloat(form.price),
-        category: form.category,
-        isFeatured: form.isFeatured,
-      };
+      const formData = new FormData();
+
+      formData.append("name", form.name);
+      formData.append("price", parseFloat(form.price));
+      formData.append("category", form.category);
+      formData.append("isFeatured", form.isFeatured);
+
+      if (form.image) {
+        formData.append("image", form.image);
+      }
 
       if (form.id === 0) {
-        await api.post("/api/product", payload);
+        await api.post("/api/product", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
       } else {
-        await api.put(`/api/product/${form.id}`, {
-          id: form.id,
-          ...payload,
+        formData.append("id", form.id);
+
+        await api.put(`/api/product/${form.id}`, formData, {
+          headers: { "Content-Type": "multipart/form-data" },
         });
       }
 
@@ -63,6 +71,7 @@ const Admin = () => {
         price: "",
         category: "",
         isFeatured: false,
+        image: null,
       });
 
       fetchProducts();
@@ -115,6 +124,11 @@ const Admin = () => {
           value={form.category}
           onChange={handleChange}
         />
+        <input
+          type="file"
+          name="image"
+          onChange={(e) => setForm({ ...form, image: e.target.files[0] })}
+        />
         <label style={{ marginLeft: "10px" }}>
           <input
             type="checkbox"
@@ -133,6 +147,15 @@ const Admin = () => {
       <div style={{ padding: "20px" }}>
         {products.map((p) => (
           <div key={p.id} style={styles.card}>
+            <img
+              src={
+                p.imageUrl
+                  ? `https://localhost:xxxx${p.imageUrl}`
+                  : "https://via.placeholder.com/150"
+              }
+              alt={p.name}
+              style={{ width: "100px", height: "100px", objectFit: "cover" }}
+            />
             <h3>{p.name}</h3>
             <p>₹ {p.price}</p>
             <p>Category: {p.category}</p>
