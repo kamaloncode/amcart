@@ -70,11 +70,14 @@ const Products = () => {
         {filteredProducts.map((product) => (
           <div key={product.id} style={styles.card}>
             <img
-              src="https://via.placeholder.com/150"
-              alt="product"
+              src={
+                product.imageUrl
+                  ? `https://productservice-hcr6.onrender.com${product.imageUrl}`
+                  : "https://via.placeholder.com/150"
+              }
+              alt={product.name}
               style={styles.image}
             />
-
             <h3>{product.name}</h3>
             <p>₹ {product.price}</p>
             <select onChange={(e) => setCategory(e.target.value)}>
