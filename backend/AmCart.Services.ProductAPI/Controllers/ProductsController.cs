@@ -19,8 +19,15 @@ public class ProductsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var products = await _db.Products.ToListAsync();
-        return Ok(products);
+        try
+        {
+            var products = await _db.Products.ToListAsync();
+            return Ok(products);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.ToString());
+        }
     }
 
     [HttpPost]
