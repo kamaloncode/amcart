@@ -31,8 +31,21 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromForm] Product product, IFormFile image)
+    public async Task<IActionResult> Create(
+    [FromForm] string Name,
+    [FromForm] decimal Price,
+    [FromForm] string Category,
+    [FromForm] bool IsFeatured,
+    IFormFile image)
     {
+        var product = new Product
+        {
+            Name = Name,
+            Price = Price,
+            Category = Category,
+            IsFeatured = IsFeatured
+        };
+
         if (image != null && image.Length > 0)
         {
             var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
