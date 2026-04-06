@@ -7,6 +7,6 @@ public class Product
     public decimal Price { get; set; }
     public string Category { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public bool IsFeatured { get; set; } = false
-;
+    public bool IsFeatured { get; set; } = false;
+    public string ImageUrl { get; set; }  
 }
