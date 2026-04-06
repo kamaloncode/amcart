@@ -44,26 +44,16 @@ const Admin = () => {
     try {
       const formData = new FormData();
 
-      formData.append("name", form.name);
-      formData.append("price", parseFloat(form.price));
-      formData.append("category", form.category);
-      formData.append("isFeatured", form.isFeatured);
+      formData.append("Name", form.name);
+      formData.append("Price", parseFloat(form.price));
+      formData.append("Category", form.category);
+      formData.append("IsFeatured", form.isFeatured);
 
       if (form.image) {
         formData.append("image", form.image);
       }
 
-      if (form.id === 0) {
-        await api.post("/api/product", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-      } else {
-        formData.append("id", form.id);
-
-        await api.put(`/api/product/${form.id}`, formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-      }
+      await api.post("/api/product", formData);
 
       setForm({
         id: 0,
