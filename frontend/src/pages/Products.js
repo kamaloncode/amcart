@@ -70,11 +70,7 @@ const Products = () => {
         {filteredProducts.map((product) => (
           <div key={product.id} style={styles.card}>
             <img
-              src={
-                product.imageUrl
-                  ? `https://productservice-hcr6.onrender.com${product.imageUrl}`
-                  : "https://via.placeholder.com/150"
-              }
+              src={product.productImage || "https://via.placeholder.com/150"}
               alt={product.name}
               style={styles.image}
             />

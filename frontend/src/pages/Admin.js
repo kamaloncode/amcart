@@ -42,18 +42,21 @@ const Admin = () => {
 
   const saveProduct = async () => {
     try {
-      const formData = new FormData();
-
-      formData.append("Name", form.name);
-      formData.append("Price", parseFloat(form.price));
-      formData.append("Category", form.category);
-      formData.append("IsFeatured", form.isFeatured);
+      let base64Image = null;
 
       if (form.image) {
-        formData.append("image", form.image);
+        base64Image = await toBase64(form.image);
       }
 
-      await api.post("/api/product", formData);
+      const payload = {
+        name: form.name,
+        price: parseFloat(form.price),
+        category: form.category,
+        isFeatured: form.isFeatured,
+        productImage: base64Image,
+      };
+
+      await api.post("/api/product", payload);
 
       setForm({
         id: 0,
@@ -79,6 +82,13 @@ const Admin = () => {
       isFeatured: product.isFeatured || false,
     });
   };
+  const toBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+    });
 
   const deleteProduct = async (id) => {
     try {
