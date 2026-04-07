@@ -148,7 +148,10 @@ const Admin = () => {
         {products.map((p) => (
           <div key={p.id} style={styles.card}>
             <img
-              src={product.productImage || "https://via.placeholder.com/150"}
+              src={
+                p.productImage ||
+                "https://dummyimage.com/150x150/cccccc/000000&text=No+Image"
+              }
               alt={p.name}
               style={{ width: "100px", height: "100px", objectFit: "cover" }}
             />
