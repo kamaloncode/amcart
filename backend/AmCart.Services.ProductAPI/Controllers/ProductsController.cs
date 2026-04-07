@@ -31,39 +31,8 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(
-    [FromForm] string Name,
-    [FromForm] decimal Price,
-    [FromForm] string Category,
-    [FromForm] bool IsFeatured,
-    IFormFile image)
+    public async Task<IActionResult> Create([FromBody] Product product)
     {
-        var product = new Product
-        {
-            Name = Name,
-            Price = Price,
-            Category = Category,
-            IsFeatured = IsFeatured
-        };
-
-        if (image != null && image.Length > 0)
-        {
-            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
-
-            if (!Directory.Exists(uploadsFolder))
-                Directory.CreateDirectory(uploadsFolder);
-
-            var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
-            var filePath = Path.Combine(uploadsFolder, fileName);
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await image.CopyToAsync(stream);
-            }
-
-            product.ImageUrl = "/uploads/" + fileName;
-        }
-
         _db.Products.Add(product);
         await _db.SaveChangesAsync();
 
