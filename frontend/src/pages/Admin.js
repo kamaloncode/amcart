@@ -148,7 +148,7 @@ const Admin = () => {
         {products.map((p) => (
           <div key={p.id} style={styles.card}>
             <img
-              src={`https://productservice-hcr6.onrender.com${p.imageUrl}`}
+              src={product.productImage || "https://via.placeholder.com/150"}
               alt={p.name}
               style={{ width: "100px", height: "100px", objectFit: "cover" }}
             />
