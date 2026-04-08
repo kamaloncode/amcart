@@ -68,5 +68,21 @@ jobs:
         cd frontend
         npm run build
         
+    - name: Deploy UI
+      run: curl -X POST https://api.render.com/deploy/srv-d74lqhffte5s73f3c1b0?key=nmDpP8ykomw    
+        
+    - name: Deploy Auth API
+      run: curl -X POST https://api.render.com/deploy/srv-d70isna4d50c73euld4g?key=GE13zUBjujQ
+      
+    - name: Deploy Gateway API
+      run: curl -X POST https://api.render.com/deploy/srv-d731ovoule4c73er3ns0?key=Ltc36xKqJnY
+      
     - name: Deploy Product API
       run: curl -X POST https://api.render.com/deploy/srv-d71narfkijhs73cpfd20?key=PXFb67uMGKQ
+      
+    - name: Deploy Cart API
+      run: curl -X POST https://api.render.com/deploy/srv-d71pvevdiees73bulfig?key=RZi6Mcj3wlI
+      
+    - name: Deploy Order API
+      run: curl -X POST https://api.render.com/deploy/srv-d71r6fua2pns73fd17v0?key=SPzjTGO2Erw
+      
