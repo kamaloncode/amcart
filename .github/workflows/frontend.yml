@@ -1,0 +1,25 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'frontend/**'
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - run: |
+        cd frontend
+        npm install
+        npm run build
+
+    - run: curl -X POST  https://api.render.com/deploy/srv-d74lqhffte5s73f3c1b0?key=nmDpP8ykomw
