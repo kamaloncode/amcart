@@ -36,7 +36,7 @@ const ProductDetailsPage = () => {
 
   if (!product) return <div>Loading...</div>;
 
-  // Add to cart (your existing logic)
+  // Add to cart
   const addToCart = async () => {
     try {
       const token = localStorage.getItem("token");

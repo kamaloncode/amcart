@@ -29,7 +29,7 @@ const Products = () => {
   };
 
   const addToCart = async (product, e) => {
-    e.stopPropagation(); // FIX: prevent navigation
+    e.stopPropagation();
 
     try {
       const token = localStorage.getItem("token");

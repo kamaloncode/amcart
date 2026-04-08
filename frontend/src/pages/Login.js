@@ -18,7 +18,7 @@ function Login() {
 
       console.log("LOGIN RESPONSE:", res.data);
 
-      login(res.data.token);
+      login(res.data.token, res.data.role);
       navigate("/products");
     } catch (err) {
       console.error("LOGIN ERROR:", err.response?.data || err.message);

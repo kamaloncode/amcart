@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = ({ onSearch }) => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const Navbar = ({ onSearch }) => {
     setSearch(value);
     if (onSearch) onSearch(value);
   };
-
+  const { isAdmin } = useContext(AuthContext);
   const logout = () => {
     localStorage.removeItem("token");
     navigate("/");
@@ -36,7 +37,7 @@ const Navbar = ({ onSearch }) => {
         <button onClick={() => navigate("/cart")}>Cart</button>
         <button onClick={() => navigate("/orders")}>Orders</button>
         <button onClick={() => navigate("/checkout")}>Checkout</button>
-        <button onClick={() => navigate("/admin")}>Admin</button>
+        {isAdmin() && <button onClick={() => navigate("/admin")}>Admin</button>}
         <button onClick={() => navigate("/privacy")}>Privacy</button>
         <button onClick={() => navigate("/contact")}>Contact</button>
         <button onClick={logout}>Logout</button>

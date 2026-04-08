@@ -29,7 +29,6 @@ const Admin = () => {
     }
   };
 
-  // Generic input handler for text/number/checkbox
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
     setForm({
