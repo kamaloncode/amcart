@@ -7,41 +7,30 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
+  const [search, setSearch] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchProducts();
   }, []);
-  const openProduct = (product) => {
-    navigate(`/product/${product.id}?category=${product.category}`);
-  };
-  const [search, setSearch] = useState("");
-  const filteredProducts = products.filter(
-    (p) =>
-      p.name.toLowerCase().includes(search.toLowerCase()) &&
-      (category === "" || p.category === category),
-  );
 
-  let finalProducts = [...filteredProducts];
-
-  if (sort === "low") {
-    finalProducts.sort((a, b) => a.price - b.price);
-  } else if (sort === "high") {
-    finalProducts.sort((a, b) => b.price - a.price);
-  }
   const fetchProducts = async () => {
     try {
       const response = await api.get("/api/product");
-
-      console.log("PRODUCT API:", response.data);
-
       setProducts(response.data.$values || response.data || []);
     } catch (error) {
       console.error("Error fetching products", error);
     }
   };
 
-  const addToCart = async (product) => {
+  const openProduct = (product) => {
+    navigate(`/product/${product.id}?category=${product.category}`);
+  };
+
+  const addToCart = async (product, e) => {
+    e.stopPropagation(); // FIX: prevent navigation
+
     try {
       const token = localStorage.getItem("token");
       if (!token) {
@@ -60,19 +49,45 @@ const Products = () => {
     }
   };
 
+  // Filtering
+  const filteredProducts = products.filter(
+    (p) =>
+      p.name.toLowerCase().includes(search.toLowerCase()) &&
+      (category === "" || p.category === category),
+  );
+
+  // Sorting
+  let finalProducts = [...filteredProducts];
+
+  if (sort === "low") {
+    finalProducts.sort((a, b) => a.price - b.price);
+  } else if (sort === "high") {
+    finalProducts.sort((a, b) => b.price - a.price);
+  }
+
   return (
     <div>
       <Navbar onSearch={setSearch} />
 
       <h2 style={{ textAlign: "center" }}>Products</h2>
-      <select onChange={(e) => setSort(e.target.value)}>
-        <option value="">Sort</option>
-        <option value="low">Price Low to High</option>
-        <option value="high">Price High to Low</option>
-      </select>
+
+      {/* Move category filter OUTSIDE */}
+      <div style={{ textAlign: "center", marginBottom: "10px" }}>
+        <select onChange={(e) => setCategory(e.target.value)}>
+          <option value="">All Categories</option>
+          <option value="Men">Men</option>
+          <option value="Women">Women</option>
+        </select>
+
+        <select onChange={(e) => setSort(e.target.value)}>
+          <option value="">Sort</option>
+          <option value="low">Price Low to High</option>
+          <option value="high">Price High to Low</option>
+        </select>
+      </div>
 
       <div style={styles.grid}>
-        {filteredProducts.map((product) => (
+        {finalProducts.map((product) => (
           <div
             key={product.id}
             style={styles.card}
@@ -85,22 +100,25 @@ const Products = () => {
             />
             <h3>{product.name}</h3>
             <p>₹ {product.price}</p>
-            <select onChange={(e) => setCategory(e.target.value)}>
-              <option value="">All</option>
-              <option value="Men">Men</option>
-              <option value="Women">Women</option>
-            </select>
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+
+            <button onClick={(e) => addToCart(product, e)}>Add to Cart</button>
           </div>
         ))}
       </div>
-      <h2>Featured Products</h2>
+
+      {/* Featured */}
+      <h2 style={{ textAlign: "center" }}>Featured Products</h2>
       <div style={styles.grid}>
         {products
           .filter((p) => p.isFeatured)
           .map((p) => (
             <div key={p.id} style={styles.card}>
-              {p.name} - ₹{p.price}
+              <img
+                src={p.productImage || "https://via.placeholder.com/150"}
+                style={styles.image}
+              />
+              <h4>{p.name}</h4>
+              <p>₹ {p.price}</p>
             </div>
           ))}
       </div>
@@ -121,6 +139,7 @@ const styles = {
     textAlign: "center",
     borderRadius: "8px",
     boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+    cursor: "pointer",
   },
   image: {
     width: "100%",
