@@ -70,4 +70,25 @@ public class ProductsController : ControllerBase
 
         return Ok();
     }
+
+    [HttpGet("by-category/{category}")]
+    public async Task<IActionResult> GetByCategory(string category)
+    {
+        var products = await _db.Products
+            .Where(p => p.Category == category)
+            .ToListAsync();
+
+        return Ok(products);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetProduct(int id)
+    {
+        var product = await _db.Products.FindAsync(id);
+
+        if (product == null)
+            return NotFound();
+
+        return Ok(product);
+    }
 }
