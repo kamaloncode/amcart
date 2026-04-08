@@ -51,7 +51,7 @@ jobs:
 
     - name: Build Order API
       run: dotnet build backend/AmCart.Services.OrderAPI/AmCart.Services.OrderAPI.csproj --no-restore
-
+      
     # FRONTEND (React)
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -67,3 +67,6 @@ jobs:
       run: |
         cd frontend
         npm run build
+        
+    - name: Deploy Product API
+      run: curl -X POST https://api.render.com/deploy/srv-d71narfkijhs73cpfd20?key=PXFb67uMGKQ
