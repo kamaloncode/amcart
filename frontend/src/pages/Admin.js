@@ -14,8 +14,6 @@ const Admin = () => {
     image: null,
   });
 
-  const token = localStorage.getItem("token");
-
   // Fetch products on load
   useEffect(() => {
     fetchProducts();
