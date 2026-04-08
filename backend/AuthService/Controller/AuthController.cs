@@ -45,7 +45,8 @@ namespace AuthService.Controllers
                 PasswordSalt = salt,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
-                PhoneNumber = request.PhoneNumber
+                PhoneNumber = request.PhoneNumber,
+                Role = "Buyer"
             };
 
             _context.Users.Add(user);
@@ -74,6 +75,7 @@ namespace AuthService.Controllers
                     FirstName = "Test",
                     LastName = "User",
                     PhoneNumber = "9999999999",
+                    Role = "Admin",
                     IsActive = true,
                     CreatedAt = DateTime.UtcNow,
                     UpdatedAt = DateTime.UtcNow
@@ -101,8 +103,20 @@ namespace AuthService.Controllers
             return Ok(new AuthResponse
             {
                 Token = token,
-                Email = user.Email
+                Email = user.Email,
+                Role = user.Role
             });
         }
+
+        [HttpGet("make-admin")]
+        public async Task<IActionResult> MakeAdmin()
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == "test@gmail.com");
+            user.Role = "Admin";
+            await _context.SaveChangesAsync();
+
+            return Ok("Updated");
+        }
+
     }
 }
