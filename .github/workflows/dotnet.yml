@@ -60,10 +60,10 @@ jobs:
 
     - name: Install UI dependencies
       run: |
-        cd Amcart/frontend
+        cd frontend
         npm install
 
     - name: Build UI
       run: |
-        cd Amcart/frontend
+        cd frontend
         npm run build
