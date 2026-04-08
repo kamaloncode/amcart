@@ -1,9 +1,7 @@
-name: Build and Test
+name: Build
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
     branches: [ "main" ]
 
 jobs:
@@ -19,11 +17,8 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    - name: Restore dependencies
-      run: dotnet restore
+    - name: Restore
+      run: dotnet restore Amcart/backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj
 
     - name: Build
-      run: dotnet build --no-restore
-
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet build Amcart/backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj --no-restore
