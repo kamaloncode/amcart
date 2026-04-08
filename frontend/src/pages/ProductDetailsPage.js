@@ -14,10 +14,6 @@ const ProductDetailsPage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [qty, setQty] = useState(1);
 
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
-
   const fetchProducts = useCallback(async () => {
     try {
       const res = await api.get(`/api/product/by-category/${category}`);
@@ -31,6 +27,10 @@ const ProductDetailsPage = () => {
       console.error(err);
     }
   }, [category, id]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   const product = products[currentIndex];
 
