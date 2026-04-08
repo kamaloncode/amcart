@@ -78,7 +78,6 @@ jobs:
       
     - name: Deploy Product API
       run: curl -X POST https://api.render.com/deploy/srv-d71narfkijhs73cpfd20?key=PXFb67uMGKQ
-      run: curl -X POST https://api.render.com/deploy/srv-d71narfkijhs73cpfd20?key=PXFb67uMGKQ
       
     - name: Deploy Cart API
       run: curl -X POST https://api.render.com/deploy/srv-d71pvevdiees73bulfig?key=RZi6Mcj3wlI
