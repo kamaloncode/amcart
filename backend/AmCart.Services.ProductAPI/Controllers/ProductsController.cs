@@ -42,7 +42,6 @@ public class ProductsController : ControllerBase
     }
 
     [Authorize(Roles = "Admin")]
-    [HttpPost]
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Product updatedProduct)
     {
@@ -62,7 +61,6 @@ public class ProductsController : ControllerBase
     }
 
     [Authorize(Roles = "Admin")]
-    [HttpPost]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
