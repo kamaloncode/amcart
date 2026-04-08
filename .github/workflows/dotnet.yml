@@ -17,37 +17,53 @@ jobs:
       with:
         dotnet-version: 8.0.x
 
-    #  PRODUCT API
+    # PRODUCT API
     - name: Restore Product API
       run: dotnet restore backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj
 
     - name: Build Product API
       run: dotnet build backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj --no-restore
 
-    #  AUTH API
+    # AUTH API
     - name: Restore Auth API
       run: dotnet restore backend/AuthService/AuthService.csproj
 
     - name: Build Auth API
       run: dotnet build backend/AuthService/AuthService.csproj --no-restore
-      
-    #  GATEWAY API
+
+    # GATEWAY API
     - name: Restore Gateway API
       run: dotnet restore backend/ApiGateway/ApiGateway.csproj
 
     - name: Build Gateway API
       run: dotnet build backend/ApiGateway/ApiGateway.csproj --no-restore
 
-    #  CART API
+    # CART API
     - name: Restore Cart API
       run: dotnet restore backend/AmCart.Services.CartAPI/AmCart.Services.CartAPI.csproj
 
     - name: Build Cart API
       run: dotnet build backend/AmCart.Services.CartAPI/AmCart.Services.CartAPI.csproj --no-restore
 
-    #  ORDER API
+    # ORDER API
     - name: Restore Order API
       run: dotnet restore backend/AmCart.Services.OrderAPI/AmCart.Services.OrderAPI.csproj
 
     - name: Build Order API
       run: dotnet build backend/AmCart.Services.OrderAPI/AmCart.Services.OrderAPI.csproj --no-restore
+
+    # FRONTEND (React)
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install UI dependencies
+      run: |
+        cd Amcart/frontend
+        npm install
+
+    - name: Build UI
+      run: |
+        cd Amcart/frontend
+        npm run build
