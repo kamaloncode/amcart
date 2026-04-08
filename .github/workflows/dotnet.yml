@@ -18,7 +18,7 @@ jobs:
         dotnet-version: 8.0.x
 
     - name: Restore
-      run: dotnet restore Amcart/backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj
+      run: dotnet restore backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj
 
     - name: Build
-      run: dotnet build Amcart/backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj --no-restore
+      run: dotnet build backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj --no-restore
