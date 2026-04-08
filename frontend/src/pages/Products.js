@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import api from "../services/api";
+import { useNavigate } from "react-router-dom";
+
+const navigate = useNavigate();
+
+const openProduct = (product) => {
+  navigate(`/product/${product.id}?category=${product.category}`);
+};
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -68,7 +75,11 @@ const Products = () => {
 
       <div style={styles.grid}>
         {filteredProducts.map((product) => (
-          <div key={product.id} style={styles.card}>
+          <div
+            key={product.id}
+            style={styles.card}
+            onClick={() => openProduct(product)}
+          >
             <img
               src={product.productImage || "https://via.placeholder.com/150"}
               alt={product.name}
@@ -81,7 +92,6 @@ const Products = () => {
               <option value="Men">Men</option>
               <option value="Women">Women</option>
             </select>
-
             <button onClick={() => addToCart(product)}>Add to Cart</button>
           </div>
         ))}

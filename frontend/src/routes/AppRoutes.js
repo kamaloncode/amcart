@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import Admin from "../pages/Admin";
 import Privacy from "../pages/Privacy";
 import Contact from "../pages/Contact";
+import ProductDetailsPage from "../pages/ProductDetailsPage";
 
 function AppRoutes() {
   return (
@@ -22,6 +23,7 @@ function AppRoutes() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );
