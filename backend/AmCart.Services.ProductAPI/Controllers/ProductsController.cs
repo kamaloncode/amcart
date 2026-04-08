@@ -2,6 +2,7 @@
 using AmCart.Services.ProductAPI.Data;
 using AmCart.Services.ProductAPI.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AmCart.Services.ProductAPI.Controllers;
 
@@ -30,6 +31,7 @@ public class ProductsController : ControllerBase
         }
     }
 
+    [Authorize(Roles = "Admin")]    
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] Product product)
     {
@@ -39,6 +41,8 @@ public class ProductsController : ControllerBase
         return Ok(product);
     }
 
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] Product updatedProduct)
     {
@@ -57,6 +61,8 @@ public class ProductsController : ControllerBase
         return Ok(product);
     }
 
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(int id)
     {
