@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams, useSearchParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import api from "../services/api";
@@ -16,21 +16,21 @@ const ProductDetailsPage = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
       const res = await api.get(`/api/product/by-category/${category}`);
       const data = res.data.$values || res.data || [];
 
       setProducts(data);
 
-      const index = data.findIndex((p) => p.id == id);
+      const index = data.findIndex((p) => p.id === Number(id));
       setCurrentIndex(index);
     } catch (err) {
       console.error(err);
     }
-  };
+  }, [category, id]);
 
   const product = products[currentIndex];
 

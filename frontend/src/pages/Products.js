@@ -115,6 +115,7 @@ const Products = () => {
             <div key={p.id} style={styles.card}>
               <img
                 src={p.productImage || "https://via.placeholder.com/150"}
+                alt={p.name}
                 style={styles.image}
               />
               <h4>{p.name}</h4>
