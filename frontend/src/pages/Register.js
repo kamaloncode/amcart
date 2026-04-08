@@ -3,16 +3,26 @@ import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    email: "",
+    password: "",
+  });
+
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const register = async () => {
     try {
-      await api.post("/api/auth/register", {
-        email,
-        password,
-      });
+      await api.post("/api/auth/register", form);
 
       alert("Registration successful");
       navigate("/");
@@ -26,17 +36,39 @@ const Register = () => {
       <h2>Register</h2>
 
       <input
+        name="firstName"
+        placeholder="First Name"
+        onChange={handleChange}
+      />
+      <br />
+      <br />
+
+      <input name="lastName" placeholder="Last Name" onChange={handleChange} />
+      <br />
+      <br />
+
+      <input
+        name="phoneNumber"
+        placeholder="Phone Number"
+        onChange={handleChange}
+      />
+      <br />
+      <br />
+
+      <input
         type="email"
+        name="email"
         placeholder="Email"
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleChange}
       />
       <br />
       <br />
 
       <input
         type="password"
+        name="password"
         placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
       />
       <br />
       <br />
