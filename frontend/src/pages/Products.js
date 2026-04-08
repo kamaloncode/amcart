@@ -3,20 +3,18 @@ import Navbar from "../components/Navbar";
 import api from "../services/api";
 import { useNavigate } from "react-router-dom";
 
-const navigate = useNavigate();
-
-const openProduct = (product) => {
-  navigate(`/product/${product.id}?category=${product.category}`);
-};
-
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchProducts();
   }, []);
+  const openProduct = (product) => {
+    navigate(`/product/${product.id}?category=${product.category}`);
+  };
   const [search, setSearch] = useState("");
   const filteredProducts = products.filter(
     (p) =>
