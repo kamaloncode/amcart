@@ -1,0 +1,24 @@
+name: Product Service CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/AmCart.Services.ProductAPI/**'
+
+jobs:
+  product:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - run: dotnet restore backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj
+    - run: dotnet build backend/AmCart.Services.ProductAPI/AmCart.Services.ProductAPI.csproj --no-restore
+
+    - name: Deploy Product API
+      run: curl -X POST https://api.render.com/deploy/srv-d71narfkijhs73cpfd20?key=PXFb67uMGKQ

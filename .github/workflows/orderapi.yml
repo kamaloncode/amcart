@@ -1,0 +1,24 @@
+name: Order Service CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/AmCart.Services.OrderAPI/**'
+
+jobs:
+  order:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - run: dotnet restore backend/AmCart.Services.OrderAPI/AmCart.Services.OrderAPI.csproj
+    - run: dotnet build backend/AmCart.Services.OrderAPI/AmCart.Services.OrderAPI.csproj --no-restore
+
+    - name: Deploy Order API
+      run: curl -X POST https://api.render.com/deploy/srv-d71r6fua2pns73fd17v0?key=SPzjTGO2Erw

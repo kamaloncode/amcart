@@ -1,0 +1,24 @@
+name: Cart Service CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/AmCart.Services.CartAPI/**'
+
+jobs:
+  cart:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - run: dotnet restore backend/AmCart.Services.CartAPI/AmCart.Services.CartAPI.csproj
+    - run: dotnet build backend/AmCart.Services.CartAPI/AmCart.Services.CartAPI.csproj --no-restore
+
+    - name: Deploy Cart API
+      run: curl -X POST https://api.render.com/deploy/srv-d71pvevdiees73bulfig?key=RZi6Mcj3wlI

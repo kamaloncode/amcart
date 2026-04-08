@@ -22,4 +22,4 @@ jobs:
         npm install
         npm run build
 
-    - run: curl -X POST  https://api.render.com/deploy/srv-d74lqhffte5s73f3c1b0?key=nmDpP8ykomw
+    - run: curl -X POST https://api.render.com/deploy/srv-d74lqhffte5s73f3c1b0?key=nmDpP8ykomw

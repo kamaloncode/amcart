@@ -1,0 +1,24 @@
+name: Gateway CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/ApiGateway/**'
+
+jobs:
+  gateway:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - run: dotnet restore backend/ApiGateway/ApiGateway.csproj
+    - run: dotnet build backend/ApiGateway/ApiGateway.csproj --no-restore
+
+    - name: Deploy Gateway API
+      run: curl -X POST https://api.render.com/deploy/srv-d731ovoule4c73er3ns0?key=Ltc36xKqJnY

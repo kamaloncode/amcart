@@ -1,0 +1,24 @@
+name: Auth Service CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'backend/AuthService/**'
+
+jobs:
+  auth:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.x
+
+    - run: dotnet restore backend/AuthService/AuthService.csproj
+    - run: dotnet build backend/AuthService/AuthService.csproj --no-restore
+
+    - name: Deploy Auth API
+      run: curl -X POST https://api.render.com/deploy/srv-d70isna4d50c73euld4g?key=GE13zUBjujQ
