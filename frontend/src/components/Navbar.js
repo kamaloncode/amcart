@@ -22,7 +22,7 @@ const Navbar = ({ onSearch }) => {
       <h2 style={{ cursor: "pointer" }} onClick={() => navigate("/products")}>
         AmCart
       </h2>
-      <h4>Deployment ID: dcac6136-a03e-4504-800b-99709d28b2ca </h4>
+      <h4>Deployment ID: bc9be596-8a05-4e4a-942e-e565a0ed3e3a </h4>
 
       <input
         type="text"
